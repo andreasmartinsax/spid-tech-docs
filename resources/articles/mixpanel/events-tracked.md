@@ -11,28 +11,8 @@
 
 :body
 
-SPiD will automatically add some profile data to events. These properties should
-not be added as traits by the client, as they will be ignored (in favor of the
-user's actual profile data). This keeps profile data in events from going stale.
 
-Properties added by SPiD to all events:
-
-- Version (Platform version)
-- Revision (Platform revision)
-- SPiD ID (The SPiD user id)
-- Client (Client alias/name, not client id)
-- ip (User's ip in order for Mixpanel to derive country, city, etc)
-- User agent (Not used by Mixpanel on server side requests, but we send it anyway)
-- Age
-- Gender
-- User status
-- Registered (When the user registered)
-- Tracking ref ([Client provided visitor reference](/tracking-parameters/))
-- Tracking tag ([Client provided tag parameter](/tracking-parameters/), used for custom order tracking)
-- Flow (payment or signup)
-
-In addition we will save specific data on each event based on the event type. A
-complete overview follows below:
+# Server side events sent by SPiD, including custom properties per event:
 
 - Accept agreement
 - Verify email
@@ -57,7 +37,46 @@ complete overview follows below:
 - Secondary email added
 - Secondary email added notification email sent
 - Device fingerprint tracked on user
+
+- hasProduct
+
+
+# Browser side events sent by SPiD:
+
 - Back to client
-- Page viewed
 - Click to view agreement
-- Access check
+- Field filled
+- Page viewed
+- Time on page
+
+
+# For a visual representation of when events are triggered, please refer to the following:
+
+- [Authentication](https://docs.google.com/drawings/d/1ltS8Yqt3pgoD2ymTJwm66KRZLEFbJTdFJbC_d6i6DBw/edit?usp=sharing)
+- Payment (to be announced)
+- Profile (to be announced)
+
+
+# Properties added by SPiD to all events:
+
+SPiD will automatically add some profile data to events. These properties should
+not be added as traits by the client, as they will be ignored (in favor of the
+user's actual profile data). This keeps profile data in events from going stale.
+
+- Version (Platform version)
+- Revision (Platform revision)
+- SPiD ID (The SPiD user id)
+- Client (Client value based on "service alias" in SPiD client setup)
+- ip (User's ip in order for Mixpanel to derive country, city, etc)
+- User agent (Not used by Mixpanel on server side requests, but we send it anyway)
+- Age
+- Gender
+- User status
+- Registered (When the user registered)
+- Tracking ref ([Client provided visitor reference](/tracking-parameters/))
+- Tracking tag ([Client provided tag parameter](/tracking-parameters/), used for custom order tracking)
+- Flow (payment or signup)
+- device (Device of user determined by user agent, mapped to device model by SPiD)
+
+
+
