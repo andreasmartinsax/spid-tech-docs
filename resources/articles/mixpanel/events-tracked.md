@@ -2,17 +2,24 @@
 
 :aside
 
-## Read more about Mixpanel
-
-- [Mixpanel Analytics](/mixpanel/analytics/)
+## Read more about analytics in SPiD:
 - [Managing User-Specific Properties and Traits](/mixpanel/managing-properties-and-traits/)
+- [Mixpanel Analytics](/mixpanel/analytics/)
 - [Mixpanel Page Viewed Event](/mixpanel/page-viewed-event/)
 - [Implementing Mixpanel tracking](/mixpanel/implementing-tracking/)
 
+## Full event and property descriptions:
+[Please see externally hosted spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0An7r5IwHGo5MdG04bjlRVE5sUFNNc0JPdV9BUGtEWWc&usp=sharing)
+
+## Visual maps of events in SPiD-flows:
+- [Authentication](https://docs.google.com/drawings/d/1ltS8Yqt3pgoD2ymTJwm66KRZLEFbJTdFJbC_d6i6DBw/edit?usp=sharing)
+- Payment (to be announced)
+- Profile (to be announced)
+
+
 :body
 
-
-# Server side events sent by SPiD, including custom properties per event:
+# Server side events sent by SPiD
 
 - Accept agreement
 - Verify email
@@ -37,7 +44,6 @@
 - Secondary email added
 - Secondary email added notification email sent
 - Device fingerprint tracked on user
-
 - hasProduct
 
 
@@ -50,14 +56,7 @@
 - Time on page
 
 
-# For a visual representation of when events are triggered, please refer to the following:
-
-- [Authentication](https://docs.google.com/drawings/d/1ltS8Yqt3pgoD2ymTJwm66KRZLEFbJTdFJbC_d6i6DBw/edit?usp=sharing)
-- Payment (to be announced)
-- Profile (to be announced)
-
-
-# Properties added by SPiD to all events:
+# Properties added to all server side events:
 
 SPiD will automatically add some profile data to events. These properties should
 not be added as traits by the client, as they will be ignored (in favor of the
@@ -71,12 +70,9 @@ user's actual profile data). This keeps profile data in events from going stale.
 - User agent (Not used by Mixpanel on server side requests, but we send it anyway)
 - Age
 - Gender
-- User status
+- [User status](/user-status/) 
 - Registered (When the user registered)
 - Tracking ref ([Client provided visitor reference](/tracking-parameters/))
 - Tracking tag ([Client provided tag parameter](/tracking-parameters/), used for custom order tracking)
 - Flow (payment or signup)
 - device (Device of user determined by user agent, mapped to device model by SPiD)
-
-
-
